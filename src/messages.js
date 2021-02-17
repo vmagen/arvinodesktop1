@@ -22,6 +22,8 @@ export default {
     AddService:'הוספת שרות',
     ContactUs:'צור קשר',
     logOut:'התנתק',
-    ChangeLang: 'החלף לשפה אנגלית'
+    ChangeLang: 'החלף לשפה אנגלית',
+    password: 'סיסמא'
+
   },
 };

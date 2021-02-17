@@ -32,7 +32,6 @@ body {
 .logo{
   width: 300px;
   height: 150px;
-
 }
 .box-large{
   -webkit-box-shadow: 10px 10px 5px 0px rgba(201,201,201,1);
@@ -202,4 +201,36 @@ body {
     }
   }
 }
+input.form-control {
+  border: 0;
+  border-bottom: revert;
+}
 
+.login{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 30%;
+  min-height: 100vh;
+  text-align: center;
+}
+
+label.MuiFormControlLabel-root.rememberMe{
+  direction: rtl;
+}
+
+.MuiGrid-root.MuiGrid-container{
+  flex-direction: column;
+  font-size: large;
+}
+
+.bg{
+background: top;
+}
+
+.logoLogIn{
+  width: 500px;
+  height: 300px;
+  padding: 20px;
+}
