@@ -8,13 +8,15 @@ import { Form } from 'react-bootstrap';
 
 export default function FCLogin() {
 
-
     const [values, setValues] = React.useState({
         amount: '',
         password: '',
+        passwordText: 'סיסמא',
         weight: '',
         weightRange: '',
         showPassword: false,
+        emailText: 'אימייל',
+        email: ''
     });
 
     const customDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'walla.co.il']
@@ -31,6 +33,10 @@ export default function FCLogin() {
         event.preventDefault();
     };
 
+    const checkValidation = () => {
+
+    }
+
     return (
         <div className="bg"
             style={{
@@ -38,7 +44,7 @@ export default function FCLogin() {
                 backgroundSize: "cover",
                 height: "100vh",
             }}>
-<Form>
+            <Form onSubmit={checkValidation}>
 
                 <div className="login">
 
@@ -51,12 +57,15 @@ export default function FCLogin() {
 
                     <FormControl>
                         <Email
+                            id="email"
                             className="form-control"
-                            placeholder="אימייל"
-                            domains={customDomains} />
+                            placeholder={values.emailText}
+                            domains={customDomains}
+                            value={values.email}
+                        />
                         <br />
                         <Input
-                            placeholder="  סיסמא"
+                            placeholder={values.passwordText}
                             id="password"
                             type={values.showPassword ? 'text' : 'password'}
                             value={values.password}
@@ -73,15 +82,12 @@ export default function FCLogin() {
                                 </InputAdornment>
                             }
                         />
-
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
                             label="תזכור אותי"
                             className="rememberMe"
                         />
-
                         <br />
-
                         <Button
                             type="submit"
                             fullWidth
