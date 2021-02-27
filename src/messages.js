@@ -23,7 +23,8 @@ export default {
     ContactUs:'צור קשר',
     logOut:'התנתק',
     ChangeLang: 'החלף לשפה אנגלית',
-    password: 'סיסמא'
-
+    password: 'סיסמא',
+    registr:'הרשמה',
+    firstName:'שם פרטי'
   },
 };
