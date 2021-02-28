@@ -8,7 +8,6 @@ import ETimeline from '../Elements/ETimeline';
 import bcImage from '../assets/logInBackground.jpg'
 
 
-
 export default function FCRegistr() {
     let history = useHistory();
     const [locale, setLocale] = useState('he');
@@ -28,6 +27,15 @@ export default function FCRegistr() {
     const handleSubmit = () => {
         setBold1('0');
         history.push("/FCRegistrWinery");
+        let newWineryManager =
+        {
+            "firstName": values.firstName,
+            "lastName": values.lastName,
+            "phone": values.phone,
+            "email": values.email,
+            "code": values.password,
+            "typeId": "2"
+        }
     }
 
     const handleChange = (prop) => (event) => {
