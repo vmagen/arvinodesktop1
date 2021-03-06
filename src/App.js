@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import FCLogin from './FunctionalComponenets/FCLogin';
 import FCRegistr from './FunctionalComponenets/FCRegistr';
 import FCRegistrWinery from './FunctionalComponenets/FCRegistrWinery';
-
+import FCSingIn from './FunctionalComponenets/FCSingIn';
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
     
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={FCLogin} exact />
+        <Route path="/" component={FCSingIn} exact />
         <Route path="/Layout" component={Layout}>
           <IntlProvider locale={locale} messages={messages[locale]}>
             <Layout setLocale={setLocale} />

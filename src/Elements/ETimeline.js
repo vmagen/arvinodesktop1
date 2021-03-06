@@ -27,7 +27,7 @@ export default function ETimeline(props) {
     const classes = useStyles();
 
     return (
-        <Timeline align="alternate">
+        <Timeline className="timeLine" align="alternate">
             <img className="logoTimeLine" src={logo} />
             <TimelineItem>
                 <TimelineOppositeContent>
