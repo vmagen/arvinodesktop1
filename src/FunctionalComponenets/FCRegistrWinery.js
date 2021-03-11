@@ -12,19 +12,17 @@ import EContent from '../Elements/EContent.json'
 
 export default function FCRegistrWinery() {
     let history = useHistory();
-    const [locale, setLocale] = useState('he');
     const [isBold2, setBold2] = useState('700');
     const [area, setArea] = useState([]);
     const [img, setImg] = useState("");
     const [imgName, setImgName] = useState("");
 
     const [values, setValues] = useState({
-        firstName: '',
-        lastName: '',
+        wineryName: '',
+        wineryAdress: '',
         phone: '',
         email: '',
-        password: '',
-        confirmPassword: '',
+        wineryDescription: "",
         lineProgressValue: 50,
         areaChoose: ""
     });
@@ -49,10 +47,9 @@ export default function FCRegistrWinery() {
         let urlAPI = "http://localhost:54186/uploadpicture";
         let dataI = new FormData();
         dataI.append('picture', {
-            uri: img.name,
+            filename: img.name,
             name: imgName,
-            type: 'image/jpg'
-
+            ContentType: 'image/png'
         });
         const config = {
             method: 'POST',
@@ -118,9 +115,7 @@ export default function FCRegistrWinery() {
                 backgroundSize: "cover",
                 height: "100vh"
             }}>
-            <IntlProvider locale={locale} messages={messages[locale]}>
                 <form onSubmit={fileUploadHandler}>
-
                     <div className="SingUpPaper">
                         <Paper elevation={3} >
                             <Table>
@@ -130,65 +125,48 @@ export default function FCRegistrWinery() {
                                     </TableCell>
                                     <TableCell>
                                         <Form className="registrForm" onSubmit={handleSubmit}>
-                                            <TextField
+                                            <input
                                                 required
-                                                id="standard-required"
-                                                label="שם היקב"
                                                 type="text"
-                                                onChange={handleChange('firstName')}
-                                                InputLabelProps={{
-                                                    shrink: true,
-                                                }}
+                                                className="input"
+                                                placeholder={EContent.wineryName}
+                                                onChange={handleChange('wineryName')}
                                             />
-                                            <TextField
+                                            <input
                                                 required
-                                                id="standard-required"
-                                                label="כתובת של היקב"
                                                 type="text"
-                                                onChange={handleChange('lastName')}
-                                                InputLabelProps={{
-                                                    shrink: true,
-                                                }}
+                                                className="input"
+                                                placeholder={EContent.wineryAdress}
+                                                onChange={handleChange('wineryAdress')}
                                             />
-                                            <FormControl required>
-                                                <InputLabel htmlFor="standard-required">איזור</InputLabel>
-                                                <Select
-                                                    onChange={handleChange}>
-                                                    {area.map((option, index) => (
-                                                        <option value={index}>{option.areaName}</option>
-                                                    ))}
-                                                </Select>
-                                            </FormControl>
-                                            <TextField
+                                            {EContent.chooseArea}
+                                            <Select
                                                 required
-                                                id="standard-number"
-                                                label="טלפון ביקב"
+                                                onChange={handleChange}>
+                                                {area.map((option, index) => (
+                                                    <option value={index}>{option.areaName}</option>
+                                                ))}
+                                            </Select>
+                                            <input
+                                                required
+                                                className="input"
                                                 type="number"
+                                                placeholder={EContent.wineryPhone}
                                                 onChange={handleChange('phone')}
-                                                InputLabelProps={{
-                                                    shrink: true,
-                                                }}
                                             />
-                                            
-                                            <TextField
+                                            <input
                                                 required
-                                                id="standard-required"
-                                                label="אימייל ביקב"
-                                                type="text"
+                                                validator="isEmail"
+                                                className="input"
+                                                placeholder={EContent.wineryEmail}
                                                 onChange={handleChange('email')}
-                                                InputLabelProps={{
-                                                    shrink: true,
-                                                }}
                                             />
-                                            <TextField
+                                            <input
                                                 required
-                                                id="standard-required"
-                                                label="תיאור קצר על היקב"
-                                                type="text"
-                                                onChange={handleChange('email')}
-                                                InputLabelProps={{
-                                                    shrink: true,
-                                                }}
+                                                validator="isEmail"
+                                                className="input"
+                                                placeholder={EContent.wineryDescription}
+                                                onChange={handleChange('wineryDescription')}
                                             />
                                         </Form>
                                     </TableCell>
@@ -196,23 +174,21 @@ export default function FCRegistrWinery() {
                                 <TableRow>
                                     <TableCell>
                                         <input
-                                            label="העלה לוגו ליקב"
                                             type="file"
                                             onChange={fileSelectHandler}
                                         />
+                                        <button onChange={fileUploadHandler}>click</button>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
                                     <TableCell>
-                                        <Button className="registrButton" variant="outline-secondary" type="submit"> הבא </Button>
+                                        <Button className="registrButton" variant="outline-secondary" type="submit"> {EContent.next} </Button>
                                     </TableCell>
                                 </TableRow>
                             </Table>
                         </Paper>
                     </div>
                 </form>
-
-            </IntlProvider>
         </div>
     )
 }

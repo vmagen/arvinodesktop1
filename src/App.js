@@ -5,7 +5,6 @@ import messages from './messages';
 import './styles/App.scss';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import FCLogin from './FunctionalComponenets/FCLogin';
 import FCRegistr from './FunctionalComponenets/FCRegistr';
 import FCRegistrWinery from './FunctionalComponenets/FCRegistrWinery';
 import FCSingIn from './FunctionalComponenets/FCSingIn';
@@ -18,7 +17,7 @@ function App() {
     
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={FCSingIn} exact />
+        <Route path="/" component={FCRegistr} exact />
         <Route path="/Layout" component={Layout}>
           <IntlProvider locale={locale} messages={messages[locale]}>
             <Layout setLocale={setLocale} />

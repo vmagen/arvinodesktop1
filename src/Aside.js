@@ -23,7 +23,7 @@ const Aside = ({ collapsed, rtl, toggled, handleToggleSidebar, handleRtlChange }
       onToggle={handleToggleSidebar}
     >
       <SidebarHeader>
-        <div style={{marginRight: 50}}>
+        <div style={{marginRight: 20}}>
           <img className="logo" src={logo} >
           </img>
           </div>
