@@ -5,12 +5,6 @@ import { Table, TableRow, TableCell, Paper, makeStyles } from '@material-ui/core
 import ETimeline from '../Elements/ETimeline';
 import bcImage from '../assets/logInBackground.jpg'
 import EContent from '../Elements/EContent.json'
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import { Alert } from 'bootstrap';
 
 
 
@@ -57,7 +51,7 @@ export default function FCRegistr() {
                 "code": values.password,
                 "typeId": "2"
             }
-            fetch('http://localhost:54186/api/User',
+            fetch('https://localhost:44370/api/User',
                 {
                     method: 'POST',
                     body: JSON.stringify(newUser),
@@ -83,7 +77,7 @@ export default function FCRegistr() {
                 "phone": values.phone,
                 "email": values.email.toLowerCase()
             }
-            fetch('http://localhost:54186/api/WineryManager',
+            fetch('https://localhost:44370/api/WineryManager',
                 {
                     method: 'POST',
                     body: JSON.stringify(newWineryManager),
@@ -137,28 +131,6 @@ export default function FCRegistr() {
                 height: "100vh"
             }}>
             <div className="SingUpPaper">
-
-
-                <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                    <DialogTitle id="form-dialog-title"> {EContent.error}</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText> {alert}</DialogContentText>
-                        <input
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Email Address"
-                            type="email"
-                            fullWidth
-                        />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleClose} color="primary"> {EContent.exit} </Button>
-                    </DialogActions>
-                </Dialog>
-
-
-
                 <Paper elevation={3} >
                     <Table>
                         <TableRow>

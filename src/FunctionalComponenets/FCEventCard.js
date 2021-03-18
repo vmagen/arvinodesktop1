@@ -7,40 +7,44 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
-const useStyles = makeStyles({
-    root: {
-        maxWidth: 345,
-    },
-    media: {
-        height: 140,
-    },
-});
-
+import Moment from 'moment';
+import EContent from '../Elements/EContent.json'
 
 
 export default function FCEventCard(props) {
-    const classes = useStyles();
+    const [categoryName, setCategoryName] = useState("");
+
+    useEffect(() => {
+        for (let index = 0; index < props.categoryNum.length; index++) {
+            if (props.categoryNum[index] === props.categoryId) {
+                setCategoryName(props.categoryName[index]);
+            }
+        }
+    }, []);
+
 
     return (
         <div>
-            <Card className={classes.root}>
+            <Card>
                 <CardActionArea>
                     <CardMedia
-                        className={classes.media}
+                        className="eventImg"
+                        component="img"
+                        alt="event image"
+                        height="140"
                         image={props.img}
-                        title="eventImgPath"
+                        title="Contemplative Reptile"
                     />
+                    <br />
                     <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">{props.eventName}</Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">{props.category}</Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">{props.eventDate}</Typography>
+                        <Typography gutterBottom variant="h5" component="h2">{props.name}</Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">{props.content}</Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">{categoryName}</Typography>
+                        <Typography variant="body2" color="textSecondary" component="p"> {Moment(props.eventDate).format('YYYY-MM-DD')}</Typography>
                         <Typography variant="body2" color="textSecondary" component="p">{props.startTime}</Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">{props.price}</Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">{props.eventId}</Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">{props.participantsAmount}</Typography>
-                        <Typography gutterBottom variant="h6" component="h2">{props.ticketsPurchased}</Typography>
-
+                        <Typography variant="body2" color="textSecondary" component="p">{props.price} {EContent.ILS} </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">{EContent.participantsAmount} - {props.participantsAmount}</Typography>
+                        <Typography gutterBottom variant="h6" component="h2">{EContent.ticketsPurchased} - {props.ticketsPurchased}</Typography>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>

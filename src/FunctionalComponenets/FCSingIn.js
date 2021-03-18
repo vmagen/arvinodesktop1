@@ -5,13 +5,21 @@ import Paper from '@material-ui/core/Paper';
 import { Link, Grid, Button } from '@material-ui/core';
 import EContent from '../Elements/EContent.json'
 import { useHistory } from "react-router-dom";
+import {
+    AwesomeButton,
+    AwesomeButtonProgress,
+    AwesomeButtonSocial,
+} from 'react-awesome-button';
+import AwesomeButtonStyles from "react-awesome-button/src/styles/styles.scss";
+import FCError from './FCError';
+
 
 
 export default function FCSingIn() {
     let history = useHistory();
-    const [emailError, setEmailError] = useState("");
-    const [passwordError, setPasswordError] = useState("");
     const [checkEmail, setCheckEmail] = useState('');
+    const [open, setOpen] = useState(false);
+    const [input, setInput] = useState("");
 
     const [values, setValues] = React.useState({
         password: '',
@@ -21,12 +29,7 @@ export default function FCSingIn() {
 
     const handleEmailChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
-        if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(values.email)) {
-            setEmailError("invalid email address");
-        }
-        else {
-            setEmailError("");
-        }
+        values.email.toLowerCase();
     };
 
     const handleChangePassword = (prop) => (event) => {
@@ -34,8 +37,22 @@ export default function FCSingIn() {
     };
 
     const handleSubmit = () => {
-        
-            fetch(`http://localhost:54186/api/User/email?email=${values.email}`,
+        const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%\^&\*])(?=.{8,})");
+   //     if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(values.email) && !strongRegex.test(values.password)) {
+     //       setInput(EContent.passAndemailErr);
+       //     setOpen(true);
+    //    }
+ //       else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(values.email)) {
+   //         setInput(EContent.emailErr)
+   //         setOpen(true);
+//        }
+//        else if (!strongRegex.test(values.password)) {
+  //          setInput(EContent.passworErr)
+    //        setOpen(true);
+      //  }
+   //     else {
+            setOpen(false);
+            fetch(`https://localhost:44370/api/User/email?email=${values.email}`,
                 {
                     method: 'GET',
                     headers: new Headers({
@@ -52,18 +69,30 @@ export default function FCSingIn() {
                 .then(
                     (result) => {
                         setCheckEmail({ checkEmail, result })
+                        localStorage.setItem('user', result);
                         console.log(result)
                     },
                     (error) => {
                         console.log("err post=", error);
-                    });
-
-        if (checkEmail !== null) {
-            history.push("/Layout");
-        }
+                  });
+       //     if (checkEmail !== null) {
+                history.push("/FCHome");
+         //   }
+      //   else{}
+     //   }
     }
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
         <div>
+            <FCError open={open} input={input} handleClose={handleClose} />
             <div className="bg"
                 style={{
                     backgroundImage: `url(${bcImage})`,
@@ -91,7 +120,6 @@ export default function FCSingIn() {
                                     placeholder={EContent.password}
                                     type={values.showPassword ? 'text' : 'password'}
                                 />
-                                {passwordError}
                             </Grid>
                             <br />
                             <Grid item lg>

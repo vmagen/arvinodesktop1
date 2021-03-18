@@ -1,28 +1,24 @@
 import React, { useState } from 'react';
-import { IntlProvider } from 'react-intl';
-import Layout from './Layout';
-import messages from './messages';
 import './styles/App.scss';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FCRegistr from './FunctionalComponenets/FCRegistr';
 import FCRegistrWinery from './FunctionalComponenets/FCRegistrWinery';
 import FCSingIn from './FunctionalComponenets/FCSingIn';
-
+import FCProductManagment from './FunctionalComponenets/FCProductManagment';
+import FCHome from './FunctionalComponenets/FCHome';
+import FileUploadPage from './FunctionalComponenets/FileUploadPage';
+import 'react-awesome-button/dist/themes/theme-blue.css';
 
 function App() {
-  const [locale, setLocale] = useState('he');
 
   return (
     
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={FCRegistr} exact />
-        <Route path="/Layout" component={Layout}>
-          <IntlProvider locale={locale} messages={messages[locale]}>
-            <Layout setLocale={setLocale} />
-          </IntlProvider>
-        </Route>
+        <Route path="/" component={FCSingIn} exact />
+        <Route path="/FCHome" component={FCHome}/>
+        <Route path="/FCProductManagment" component={FCProductManagment} />
         <Route path="/FCRegistr" component={FCRegistr} />
         <Route path="/FCRegistrWinery" component={FCRegistrWinery} />
       </Switch>

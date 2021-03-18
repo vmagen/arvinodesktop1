@@ -9,7 +9,8 @@ import {
   SidebarFooter,
   SidebarContent,
 } from 'react-pro-sidebar';
-import {Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { Link } from '@material-ui/core';
 
 const Aside = ({ collapsed, rtl, toggled, handleToggleSidebar, handleRtlChange }) => {
   const intl = useIntl();
@@ -23,17 +24,18 @@ const Aside = ({ collapsed, rtl, toggled, handleToggleSidebar, handleRtlChange }
       onToggle={handleToggleSidebar}
     >
       <SidebarHeader>
-        <div style={{marginRight: 20}}>
+        <div style={{ marginRight: 20 }}>
           <img className="logo" src={logo} >
           </img>
-          </div>
+        </div>
       </SidebarHeader>
-
       <SidebarContent>
         <Menu style={{ textAlign: 'center' }} >
-          <MenuItem>
-            <span >{intl.formatMessage({ id: 'ProductManagment' })}</span>
-          </MenuItem>
+          <Link href="\FCProductManagment" variant="body2">
+            <MenuItem>
+              <span >{intl.formatMessage({ id: 'ProductManagment' })}</span>
+            </MenuItem>
+          </Link>
           <MenuItem>
             <span>{intl.formatMessage({ id: 'ProfileManagment' })}</span>
           </MenuItem>
@@ -53,7 +55,7 @@ const Aside = ({ collapsed, rtl, toggled, handleToggleSidebar, handleRtlChange }
             <span>{intl.formatMessage({ id: 'AddService' })}</span>
           </MenuItem>
         </Menu>
-        
+
       </SidebarContent>
       <SidebarFooter style={{ textAlign: 'center' }}>
         <div
@@ -82,8 +84,8 @@ const Aside = ({ collapsed, rtl, toggled, handleToggleSidebar, handleRtlChange }
             padding: '20px 24px',
           }}
         >
-         <Button variant="light" onClick={()=>handleRtlChange(false)}> {intl.formatMessage({id: 'ChangeLang'})}</Button> 
-         </div>
+          <Button variant="light" onClick={() => handleRtlChange(false)}> {intl.formatMessage({ id: 'ChangeLang' })}</Button>
+        </div>
       </SidebarFooter>
     </ProSidebar>
   );

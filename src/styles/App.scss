@@ -355,12 +355,23 @@ color:black;
   width: 100px;
 }
 
-.addEvent{
+.minipaper{
   display: 'flex';
   flex-wrap: 'wrep';
   align-items: center;
   width: 100px;
   height: 130px;
+  margin: auto;
+  text-align: center;
+  flex-direction: column; 
+}
+
+.minipaperAdd{
+  display: 'flex';
+  flex-wrap: 'wrep';
+  align-items: center;
+  width: 100px;
+  height: 80px;
   margin: auto;
   text-align: center;
   justify-content: center;
@@ -395,6 +406,140 @@ container {
 font-family: 'Open Sans Hebrew Condensed', serif;
   padding-right: 150px;
 }
-.MuiSelect-select.MuiSelect-select{
+
+button#vertical-tab-0,
+button#vertical-tab-1,
+button#vertical-tab-2,
+button#vertical-tab-3,
+button#vertical-tab-4,
+button#vertical-tab-5,
+button#vertical-tab-6,
+.MuiSelect-select.MuiSelect-select,
+h2.MuiTypography-root.MuiTypography-h5.MuiTypography-gutterBottom,
+h2.MuiTypography-root.MuiTypography-h6.MuiTypography-gutterBottom,
+h2.MuiTypography-root.MuiTypography-h6,
+.minipaperAdd, td, option{
 font-family: 'Open Sans Hebrew Condensed', serif;
+}
+
+img.rounded.mx-auto.d-block{
+  width: 100px;
+  height: 100px;
+}
+
+.MuiTabs-root.makeStyles-tabs-2.MuiTabs-vertical{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tabs, .MuiTabs-scroller.MuiTabs-scrollable{
+  display: flex;
+  margin-left: auto;
+}
+
+span.PrivateTabIndicator-root-5.PrivateTabIndicator-colorSecondary-7.MuiTabs-indicator.PrivateTabIndicator-vertical-8{
+  background-color: darkred;
+}
+.logoSidebar{
+  height: 100%;
+  display: flex;
+  margin-left: auto;
+}
+
+button.MuiButtonBase-root.MuiFab-root.MuiFab-primary{
+  width: 30px;
+  height: 30px;
+}
+
+label[for="file-input"] {
+  display: block;
+  margin-bottom: 1em;
+  font-size: 1em;
+  color: #fff;
+  opacity: .9;
+  font-weight: bold;
+}
+
+input[type="file"]{
+  display: block;
+  margin-bottom: 1em;
+  font-size: 1em;
+  color: #fff;
+  opacity: .9;
+  font-weight: bold;
+  display: 'flex';
+  flex-wrap: 'wrep';
+  align-items: center;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 15px;
+}
+input[type="file"]::-webkit-file-upload-button {
+  border: none;
+  padding: 5px 12px;
+  background: #353535;
+  color: #fff;
+  font-size: 1em;
+  transition: all .4s;
+  cursor: pointer;
+  border-radius: 20px;
+}
+input[type="file"]::-ms-browse {
+  border: none;
+  padding: 5px 12px;
+  color: #fff;
+  font-size: 1em;
+  transition: all .4s;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.upload{
+  display: 'flex';
+  flex-wrap: 'wrep';
+  align-items: center;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.MuiDialog-paperWidthSm, button.MuiButtonBase-root.MuiCardActionArea-root{
+  text-align: center;
+  font-family: 'Open Sans Hebrew Condensed', serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color:dimgray;
+  flex-direction: column; 
+}
+
+.products{
+  float: right;
+
+}
+
+table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+td {
+  padding: 15px;
+  width: 80em;
+  height: 10em;
+  text-align: -webkit-right;
+}
+
+button.MuiButtonBase-root.MuiFab-root.MuiFab-primary{
+  margin: 10px;
+}
+
+button.MuiButtonBase-root.MuiButton-root.registrButton{
+  width: 300px;
 }

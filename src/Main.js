@@ -6,7 +6,7 @@ import Efooter from './Elements/EFooter';
 import addEventButton from './assets/addEvent.png';
 import addServiceButton from './assets/addService.png';
 import addWineButton from './assets/addWine.png';
-import EContent from './Elements/EContent.json'
+import EContent from './Elements/EContent.json';
 import Paper from '@material-ui/core/Paper';
 import Typography from "@material-ui/core/Typography";
 import { Select } from '@material-ui/core';
@@ -27,21 +27,21 @@ const Main = ({ handleToggleSidebar }) => {
     <container fluid>
       <Row className="homeTopRow">
         <Col xs lg="2">
-          <Paper className="addEvent">
+          <Paper className="minipaper">
             <img className="homePageIcons"
               src={addEventButton} />
             {EContent.addEvent}
           </Paper>
         </Col>
         <Col xs lg="2">
-          <Paper className="addEvent">
+          <Paper className="minipaper">
             <img className="homePageIcons"
               src={addServiceButton} />
             {EContent.addService}
           </Paper>
         </Col>
         <Col xs lg="2">
-          <Paper className="addEvent">
+          <Paper className="minipaper">
             <img className="homePageIcons"
               src={addWineButton} />
             {EContent.addWine}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Aside from './Aside';
 import Main from './Main';
+import FCProductManagment from './FunctionalComponenets/FCProductManagment';
 
 function Layout({ setLocale }) {
   const [rtl, setRtl] = useState(true);
