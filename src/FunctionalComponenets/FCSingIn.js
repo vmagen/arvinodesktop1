@@ -5,12 +5,6 @@ import Paper from '@material-ui/core/Paper';
 import { Link, Grid, Button } from '@material-ui/core';
 import EContent from '../Elements/EContent.json'
 import { useHistory } from "react-router-dom";
-import {
-    AwesomeButton,
-    AwesomeButtonProgress,
-    AwesomeButtonSocial,
-} from 'react-awesome-button';
-import AwesomeButtonStyles from "react-awesome-button/src/styles/styles.scss";
 import FCError from './FCError';
 
 

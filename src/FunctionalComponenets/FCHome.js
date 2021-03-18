@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Divider from '@material-ui/core/Divider';
 import Efooter from '../Elements/EFooter';
 import addEventButton from '../assets/addEvent.png';
 import addServiceButton from '../assets/addService.png';
@@ -12,11 +10,32 @@ import Typography from "@material-ui/core/Typography";
 import { Select } from '@material-ui/core';
 import FCEvents from './FCEvents';
 import FCSidebar from './FCSidebar';
+import FCAddNewService from './FCAddNewService';
+import FCAddNewWine from './FCAddNewWine';
 
 export default function FCHome() {
     const sortOptions = ["יומי", "שבועי", "חודשי", "שנתי"];
     const wineryId = "1";
     const [option, setOption] = useState("");
+    const [openS, setOpenS] = useState(false);
+    const [openW, setOpenW] = useState(false);
+
+    const handleClickOpenAddService = () => {
+        setOpenS(true);
+    };
+
+    const handleCloseAddService = () => {
+        setOpenS(false);
+    };
+    
+    const handleClickOpenAddWine = () => {
+        setOpenW(true);
+    };
+
+    const handleCloseAddWine = () => {
+        setOpenW(false);
+    };
+
     const handleChange = (e) => {
         setOption(e.target.value)
         console.log(option)
@@ -24,27 +43,32 @@ export default function FCHome() {
 
     return (
         <div className="tabs">
+            <FCAddNewService open={openS} handleCloseAddService={handleCloseAddService} />
+            <FCAddNewWine open={openW} handleCloseAddWine={handleCloseAddWine} />
             <table>
                 <tbody>
                     <tr>
                         <td>
                             <Paper className="minipaper">
                                 <img className="homePageIcons"
-                                    src={addEventButton} />
+                                    src={addEventButton} 
+                                    />
                                 {EContent.addEvent}
                             </Paper>
                         </td>
                         <td>
                             <Paper className="minipaper">
                                 <img className="homePageIcons"
-                                    src={addServiceButton} />
+                                    src={addServiceButton} 
+                                    onClick={handleClickOpenAddService}/>
                                 {EContent.addService}
                             </Paper>
                         </td>
                         <td>
                             <Paper className="minipaper">
                                 <img className="homePageIcons"
-                                    src={addWineButton} />
+                                    src={addWineButton} 
+                                    onClick={handleClickOpenAddWine}/>
                                 {EContent.addWine}
                             </Paper>
                         </td>
